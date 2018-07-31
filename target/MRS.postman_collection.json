@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "9f5427dc-d26e-4fd3-a9ce-bc6131953c04",
+		"name": "MRS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "a3a4862b-ad75-4eec-8e28-a07888faa230",
+			"name": "TOKENS",
+			"item": [
+				{
+					"_postman_id": "af752501-e19f-4f04-9ee7-e6fb80f35d8f",
+					"name": "GET TOKEN PROVIDER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28c1ad8c-dc45-4b16-a496-f55f70001a15",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"username\" : \"provider\",\n\"password\" : \"provider\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "68421c9b-428c-441b-85b3-bbe2bcc5fad2",
+					"name": "GET TOKEN REQUESTOR",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28c1ad8c-dc45-4b16-a496-f55f70001a15",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"username\" : \"requestor\",\n\"password\" : \"requestor\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "df7cba7d-3590-472c-a2c4-0cc56f6cc0f9",
+					"name": "GET TOKEN MULTI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28c1ad8c-dc45-4b16-a496-f55f70001a15",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"username\" : \"multi\",\n\"password\" : \"multi\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "78051811-679b-46cf-b860-6f7b6a769277",
+			"name": "DISTRIBUTION",
+			"item": [
+				{
+					"_postman_id": "6f4222ab-6047-4246-99ce-34649db631bb",
+					"name": "POST CREATE Distribution ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"requesters\" : [{ \"id\" : \"req\" }, { \"id\" : \"crv\"}],\r\n\t\"distributionChannel\": [\"MAIL\"],\r\n\t\"message\" : \"No available data for your request\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/datadistribution/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"datadistribution",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "d82133b0-c5e9-4728-8b70-6925a333bc8b",
+					"name": "POST REPLY",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"requesters\" : [{ \"id\" : \"req\" }, { \"id\" : \"crv\"}],\r\n\"distributionChannel\": [\"MAIL\"],\r\n\"message\" : \"There are some Market Surveys that fit your request\",\r\n\"surveys\" : [\"dcfca960-bd27-45f0-81ef-270e3a065546\", \"3afb4655-ef25-4dec-9810-132b996a7287\"]\r\n\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/datadistribution/reply/959f399f-6bac-42f0-bc3b-73b69ee93644",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"datadistribution",
+								"reply",
+								"959f399f-6bac-42f0-bc3b-73b69ee93644"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "629e3825-cf99-44d3-b222-efaddab39458",
+					"name": "GET REPLY",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"requesters\" : [{ \"id\" : \"req\" }, { \"id\" : \"crv\"}],\r\n\"distributionChannel\": [\"MAIL\"],\r\n\"message\" : \"No available data for your request\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/datadistribution/reply/7c506a96-d86c-4a2a-be32-859901bce6c7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"datadistribution",
+								"reply",
+								"7c506a96-d86c-4a2a-be32-859901bce6c7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "45f18a7e-f17e-4c90-b1ea-64ffc5a52ce6",
+			"name": "REQUESTS",
+			"item": [
+				{
+					"_postman_id": "daa70b34-2259-4e36-b0ca-ed87cf2541af",
+					"name": "POST CREATE Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"providers\" : [{ \"id\" : \"prov\" }, { \"id\" : \"crv\"}],\r\n\t\"subject\": {\"classificationValue\":10101501},\r\n\t\"subscriptionChannels\": [\"POSTAL\", \"MAIL\", \"API\"],\r\n\t\"question\": \"Question 1\",\r\n\t\"answer\": \"Yes\",\r\n\t\"surveyDescription\":\"d6a96127-ade9-4160-8fbc-2b03062aa304\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/requests",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"requests"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "1ee1be39-09ef-4137-883a-86d6eaeacb12",
+			"name": "MARKET SURVEYS",
+			"item": [
+				{
+					"_postman_id": "8ad12bde-5c8c-4bb4-bf5c-82c3d4e00f04",
+					"name": "FIND BY SUBJECTS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"subjects\" : [10101501]\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/marketsurveys/findbysubjects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"marketsurveys",
+								"findbysubjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "cd8cde83-39c5-44b9-be46-272bc86f3cd6",
+					"name": "CREATE SURVEY",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n\t\"description\": \"Requesting for data description survey \",\n\t\"countries\" : [{\"code\": \"GB\"}, {\"code\": \"ES\"}],\n\t\"targetGroupDescription\": {\n\t\t\"gender\": \"M\",\n\t\t\"age\": [30, 60],\n\t\t\"income\": {\n\t\t\t\"currency\": \"EUR\", \"range\": [20000, 40000]\n\t\t}\n\t}\n}]"
+						},
+						"url": {
+							"raw": "localhost:8080/api/marketsurveys/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"marketsurveys",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "ccf11f16-1280-4564-a577-4d21864024fe",
+					"name": "CREATE SURVEYs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n\t\"description\": \"Description survey 1\",\n\t\"owner\": {\"id\":\"crv\"},\n\t\"countries\" : [ {\"code\": \"ES\"}],\n\t\"targetGroupDescription\": {\n\t\t\"gender\": \"M\",\n\t\t\"age\": [30, 60],\n\t\t\"income\": {\n\t\t\t\"currency\": \"EUR\", \"range\": [20000, 40000]\n\t\t}\n\t},\n\t\"subjects\" : [{\"classificationValue\" : 10151525}],\n\t\"timeForFieldwork\": 300000,\n\t\"sampleSize\": 1000,\n\t\"channel\": \"WEB\",\n\t\"organisation\": \"SYNDICATED\",\n\t\"registrationType\": \"SELF_COMPLETION\",\n\t\"method\": \"QUANTITATIVE\",\n\t\"type\": \"SEGMENTATION\",\n\t\"conditions\": [{\"id\":3}, {\"id\":0}]\n},\n{\n\t\"description\": \"Description survey 2\",\n\t\"owner\": {\"id\":\"crv\"},\n\t\"countries\" : [ {\"code\": \"GB\"}],\n\t\"targetGroupDescription\": {\n\t\t\"gender\": \"M\",\n\t\t\"age\": [30, 60],\n\t\t\"income\": {\n\t\t\t\"currency\": \"EUR\", \"range\": [20000, 40000]\n\t\t}\n\t},\n\t\"subjects\" : [{\"classificationValue\" : 95141901}],\n\t\"timeForFieldwork\": 300000,\n\t\"sampleSize\": 1000,\n\t\"channel\": \"PAPER\",\n\t\"organisation\": \"OMNIBUS\",\n\t\"registrationType\": \"F2F_INTERVIEW\",\n\t\"method\": \"QUALITATIVE\",\n\t\"type\": \"PRODUCT_TEST\",\n\t\"conditions\": [{\"id\":1}]\n}\n]"
+						},
+						"url": {
+							"raw": "localhost:8080/api/marketsurveys/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"marketsurveys",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
