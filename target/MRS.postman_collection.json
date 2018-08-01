@@ -6,11 +6,11 @@
 	},
 	"item": [
 		{
-			"_postman_id": "a3a4862b-ad75-4eec-8e28-a07888faa230",
+			"_postman_id": "755bd735-be30-4bc3-b322-603ee5672db1",
 			"name": "TOKENS",
 			"item": [
 				{
-					"_postman_id": "af752501-e19f-4f04-9ee7-e6fb80f35d8f",
+					"_postman_id": "e578c467-15b8-4efe-96b6-7ea76260fbd2",
 					"name": "GET TOKEN PROVIDER",
 					"event": [
 						{
@@ -55,7 +55,7 @@
 					"response": []
 				},
 				{
-					"_postman_id": "68421c9b-428c-441b-85b3-bbe2bcc5fad2",
+					"_postman_id": "b7ff77b8-2aba-40d2-b86e-933e7ff78ddf",
 					"name": "GET TOKEN REQUESTOR",
 					"event": [
 						{
@@ -100,7 +100,7 @@
 					"response": []
 				},
 				{
-					"_postman_id": "df7cba7d-3590-472c-a2c4-0cc56f6cc0f9",
+					"_postman_id": "a427fa2b-0a05-4477-92a0-d4cf1c17ce86",
 					"name": "GET TOKEN MULTI",
 					"event": [
 						{
@@ -147,11 +147,11 @@
 			]
 		},
 		{
-			"_postman_id": "78051811-679b-46cf-b860-6f7b6a769277",
+			"_postman_id": "bf4918a0-0590-496b-acc1-24335396ccb9",
 			"name": "DISTRIBUTION",
 			"item": [
 				{
-					"_postman_id": "6f4222ab-6047-4246-99ce-34649db631bb",
+					"_postman_id": "20218a20-77c2-4bc9-8fee-80d4b8e9b22c",
 					"name": "POST CREATE Distribution ",
 					"request": {
 						"method": "POST",
@@ -167,7 +167,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"requesters\" : [{ \"id\" : \"req\" }, { \"id\" : \"crv\"}],\r\n\t\"distributionChannel\": [\"MAIL\"],\r\n\t\"message\" : \"No available data for your request\"\r\n}"
+							"raw": "{\r\n\t\"requesters\" : [{ \"id\" : \"req\" }, { \"id\" : \"crv\"}],\r\n\t\"distributionChannel\": [\"MAIL\"],\r\n\t\"message\" : \"We offer  some topics that may be of your interest. Contact us!\",\r\n\t\"surveys\" : [\"9b084f40-f650-4b16-8920-9a37c1d1b86a\"]\r\n}"
 						},
 						"url": {
 							"raw": "localhost:8080/api/datadistribution/create",
@@ -185,7 +185,7 @@
 					"response": []
 				},
 				{
-					"_postman_id": "d82133b0-c5e9-4728-8b70-6925a333bc8b",
+					"_postman_id": "ab7a77a1-a5f2-4f30-a95a-657799471c5f",
 					"name": "POST REPLY",
 					"request": {
 						"method": "POST",
@@ -201,7 +201,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"requesters\" : [{ \"id\" : \"req\" }, { \"id\" : \"crv\"}],\r\n\"distributionChannel\": [\"MAIL\"],\r\n\"message\" : \"There are some Market Surveys that fit your request\",\r\n\"surveys\" : [\"dcfca960-bd27-45f0-81ef-270e3a065546\", \"3afb4655-ef25-4dec-9810-132b996a7287\"]\r\n\r\n}"
+							"raw": "{\r\n\t\"requesters\" : [{ \"id\" : \"req\" }, { \"id\" : \"crv\"}],\r\n\t\"distributionChannel\": [\"MAIL\"],\r\n\t\"message\" : \"There are some Market Surveys that fit your request\",\r\n\t\"surveys\" : [\"9b084f40-f650-4b16-8920-9a37c1d1b86a\"]\r\n}"
 						},
 						"url": {
 							"raw": "localhost:8080/api/datadistribution/reply/959f399f-6bac-42f0-bc3b-73b69ee93644",
@@ -220,7 +220,7 @@
 					"response": []
 				},
 				{
-					"_postman_id": "629e3825-cf99-44d3-b222-efaddab39458",
+					"_postman_id": "17d83301-2c99-4d08-9c19-e3c9a0c3a416",
 					"name": "GET REPLY",
 					"request": {
 						"method": "GET",
@@ -257,11 +257,11 @@
 			]
 		},
 		{
-			"_postman_id": "45f18a7e-f17e-4c90-b1ea-64ffc5a52ce6",
+			"_postman_id": "359a7c34-2fbf-41af-a02d-583122eb46c0",
 			"name": "REQUESTS",
 			"item": [
 				{
-					"_postman_id": "daa70b34-2259-4e36-b0ca-ed87cf2541af",
+					"_postman_id": "41d0c4b2-b8a1-4190-99ce-af1376df9042",
 					"name": "POST CREATE Request",
 					"request": {
 						"method": "POST",
@@ -296,11 +296,11 @@
 			]
 		},
 		{
-			"_postman_id": "1ee1be39-09ef-4137-883a-86d6eaeacb12",
+			"_postman_id": "c1067d74-7994-4083-a234-505203fcf4eb",
 			"name": "MARKET SURVEYS",
 			"item": [
 				{
-					"_postman_id": "8ad12bde-5c8c-4bb4-bf5c-82c3d4e00f04",
+					"_postman_id": "1a5c1fe7-a97f-40fa-8e7b-6aaf52ba56e6",
 					"name": "FIND BY SUBJECTS",
 					"request": {
 						"method": "POST",
@@ -334,7 +334,7 @@
 					"response": []
 				},
 				{
-					"_postman_id": "cd8cde83-39c5-44b9-be46-272bc86f3cd6",
+					"_postman_id": "01353717-edc2-4ba3-9169-ca296a6b4d73",
 					"name": "CREATE SURVEY",
 					"request": {
 						"method": "POST",
@@ -368,7 +368,7 @@
 					"response": []
 				},
 				{
-					"_postman_id": "ccf11f16-1280-4564-a577-4d21864024fe",
+					"_postman_id": "b7fefb77-7c59-4eee-80d5-353971e63568",
 					"name": "CREATE SURVEYs",
 					"request": {
 						"method": "POST",
